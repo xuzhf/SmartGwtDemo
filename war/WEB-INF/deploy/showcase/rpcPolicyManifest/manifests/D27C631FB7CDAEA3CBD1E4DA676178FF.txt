@@ -1,0 +1,2 @@
+serviceClass: com.demo.gwt.client.service.MemberService
+path: 9D464156B6D13E6A490511E52914F0ED.gwt.rpc

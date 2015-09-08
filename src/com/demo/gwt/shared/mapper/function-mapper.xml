@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.gwt.shared.mapper.FunctionMapper">
+	<resultMap type="com.demo.gwt.model.Function" id="FunctionResultMap">
+	</resultMap>
+	<select id="getOwnerFunction" parameterType="string" resultMap="FunctionResultMap">
+    	<![CDATA[
+            select fs.id,fs.name,fs.description,fs.parentId,fs.functionClass,fs.functionCode,fs.url,fs.level,fs.iconPath,fs.sequence
+            from operator as ao 
+            left join role_members as gb on ao.id = gb.memberId
+            left join role_function as gp on gb.roleId=gp.groupId
+            inner join functions as fs on fs.id = gp.functionId where ao.id = #{memberId} order by fs.id ASC
+        ]]>
+	</select>
+	<select id="listPage" resultMap="FunctionResultMap">
+		select * from functions
+	</select>
+
+	<insert id="add" parameterType="Function">
+		insert into
+		functions(id,name,description,parentId,functionClass,functionCode,url,level,iconPath,sequence)
+		values(#{id},#{name},#{description},#{parentId},#{functionClass}#{functionCode},#{url},
+		#{level},#{iconPath},#{sequence})
+	</insert>
+
+	<update id="update" parameterType="Function">
+		update functions
+		<set>
+			<if test="name != null">name = #{name},</if>
+			<if test="description != null">description = #{description},</if>
+			<if test="parentId != null">parentId = #{parentId},</if>
+			<if test="functionClass != null">functionClass = #{functionClass},</if>
+			<if test="functionCode != null">functionCode = # {functionCode},</if>
+			<if test="url != null">url= #{url},</if>
+			<if test="level != null">level= #{level},</if>
+			<if test="iconPath != null">iconPath = #{iconPath},</if>
+			<if test="sequence != null">sequence = #{sequence}</if>
+		</set>
+		where id = #{id}
+	</update>
+
+	<delete id="delete" parameterType="String">
+		delete FROM functions where id=#{id}
+	</delete>
+
+	<cache eviction="LRU" flushInterval="60000" size="512" readOnly="false" />
+</mapper>

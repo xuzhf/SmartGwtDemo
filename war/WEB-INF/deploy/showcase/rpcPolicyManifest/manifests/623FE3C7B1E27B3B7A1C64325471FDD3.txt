@@ -1,0 +1,2 @@
+serviceClass: com.demo.gwt.client.service.FunctionService
+path: C7BFE44797B901C2B4DC29157A03644C.gwt.rpc

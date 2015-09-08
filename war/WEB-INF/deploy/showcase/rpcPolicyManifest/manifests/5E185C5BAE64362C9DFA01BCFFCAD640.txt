@@ -1,0 +1,2 @@
+serviceClass: com.demo.gwt.client.service.HomeService
+path: B25CDEAD0B556FD781FB77BE7E857CDC.gwt.rpc

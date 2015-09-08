@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='showcase'>
+	<inherits name='com.google.gwt.user.User' />
+	<inherits name="com.google.gwt.core.Core" />
+	<inherits name="com.google.gwt.user.History" />
+	<inherits name="com.google.gwt.maps.GoogleMaps" />
+	<inherits name="com.google.gwt.i18n.I18N" />
+	<inherits name="com.google.gwt.http.HTTP" />
+
+	<!--<inherits name="com.gc.gwt.wysiwyg.Editor"/> -->
+	<inherits name="com.smartgwt.SmartGwtNoScript" />
+	<inherits name="com.smartgwt.SmartGwtNoSmartClient" />
+	<inherits name="com.smartgwt.DrawingNoScript"/>
+	<inherits name="com.smartgwt.tools.SmartGwtTools" />
+	<inherits name="com.smartclient.theme.enterprise.EnterpriseResources" />
+	<inherits name="com.smartclient.theme.enterpriseblue.EnterpriseBlueResources" />
+	<inherits name="com.smartclient.theme.graphite.GraphiteResources" />
+	<inherits name="com.smartclient.theme.simplicity.SimplicityResources" />
+	<extend-property name="locale" values="zh_CN" />
+	<entry-point class="com.demo.gwt.client.SmartGwtDemo" />
+	<extend-configuration-property name="document.compatMode" value="BackCompat"/>
+    <generate-with class="com.demo.gwt.shared.util.ClassUtilGenerator">
+		<when-type-assignable class="com.demo.gwt.client.pub.reflection.IClassUtil" />
+	</generate-with>
+
+	<!-- Specify the paths for translatable code -->
+	<source path='client' />
+	<source path='model' />
+</module>
