@@ -50,8 +50,8 @@ public class HomeView extends VLayout {
         ListGridField pkField = new ListGridField("id");
         pkField.setHidden(true);
 
-        ListGridField name = new ListGridField("name", "登录名");
-        ListGridField age = new ListGridField("age", "登录密码");
+        ListGridField name = new ListGridField("name", "姓名");
+        ListGridField age = new ListGridField("age", "年龄");
         
         homeGrid.setFields(pkField,name,age);
 
