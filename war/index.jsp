@@ -76,7 +76,6 @@
 </div>
 </div>
 
-
 <script type="text/javascript">document.getElementById('loadingMsg').innerHTML = '正在加载 Core API...';</script>
 
 <!--include the SC Core API-->
@@ -93,6 +92,8 @@
 <script src='showcase/sc/modules/ISC_DataBinding.js'></script>
 <script src='showcase/sc/modules/ISC_Calendar.js'></script>
 <script src='showcase/sc/modules/ISC_Drawing.js'></script>
+
+<script type="text/javascript" language="javascript" src="js/fusioncharts/fusioncharts.js"></script>
 
 <script>
 function readCookie(name) {
@@ -121,7 +122,6 @@ document.write("<"+"script src=showcase/sc/skins/" + currentSkin + "/load_skin.j
 <!--include the application JS-->
 <script type="text/javascript">document.getElementById('loadingMsg').innerHTML = '正在加载 ... 请稍等...';</script>
 <script type="text/javascript" src="showcase/showcase.nocache.js"></script>
-
-
+    
 </body>
 </html>
