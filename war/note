@@ -1,0 +1,42 @@
+http://zawoad.blogspot.com/search/label/GWT
+How to Call a Servlet in GWT
+Sometimes you may need a HttpServlet other than GWT Rpc Service in a real life application. If needed then how to call the Servlet from your GWT client? Here you will find the answer.
+
+Here is a simple HelloServlet
+public class HelloServlet extends HttpServlet {
+@Override
+public void doGet(HttpServletRequest request, HttpServletResponse response)
+throws ServletException, IOException
+{ 
+String name = request.getParameter("name");
+response.getWriter().write("Hello "+name+", Welcome in My Servlet");
+}
+}
+The Servlet uses a request a parameter 'name' and writes it in the response writer.
+
+To call the Servlet from the client first configure the web.xml (war/WEB-INF/web.xml) file to let your GWT client know about the HelloServlet.
+
+ HelloServlet
+ org.ratul.servlettest.server.HelloServlet
+
+
+ HelloServlet
+ /hello
+
+Value of the url-pattern node will be used later to call the Servlet. 
+
+Now make a simple UI with a TextBox and a Button.
+final Button sendButton = new Button("Send");
+final TextBox nameField = new TextBox();
+RootPanel.get().add(nameField);
+RootPanel.get().add(sendButton);
+
+In the Click Handler of the sendButton call the Servlet with the 'name' parameter in the following way
+sendButton.addClickHandler(new ClickHandler() {
+  public void onClick(ClickEvent event) {
+    Window.Location.replace("/hello?name="+nameField.getText());
+    //the url-pattern value is used here
+  }
+});
+
+Thats' all for today. Happy coding with GWT :-) 
